@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0074_auto_20200306_0036'),
+        ("mapping", "0074_auto_20200306_0036"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='static_source_component_ident',
+            model_name="mappingreleasecandidaterules",
+            name="static_source_component_ident",
             field=models.CharField(blank=True, default=None, max_length=50, null=True),
         ),
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='static_target_component_ident',
+            model_name="mappingreleasecandidaterules",
+            name="static_target_component_ident",
             field=models.CharField(blank=True, default=None, max_length=50, null=True),
         ),
     ]

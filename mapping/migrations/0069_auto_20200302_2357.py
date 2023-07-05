@@ -5,15 +5,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0068_auto_20200302_2357'),
+        ("mapping", "0068_auto_20200302_2357"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='accepted',
-            field=models.ManyToManyField(blank=True, default=None, related_name='accepted_users', to=settings.AUTH_USER_MODEL),
+            model_name="mappingreleasecandidaterules",
+            name="accepted",
+            field=models.ManyToManyField(
+                blank=True,
+                default=None,
+                related_name="accepted_users",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

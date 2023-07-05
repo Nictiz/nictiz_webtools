@@ -4,26 +4,25 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0001_initial'),
+        ("mapping", "0001_initial"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='MappingCodesystems',
-            new_name='MappingCodesystem',
+            old_name="MappingCodesystems",
+            new_name="MappingCodesystem",
         ),
         migrations.RenameModel(
-            old_name='MappingProjects',
-            new_name='MappingProject',
+            old_name="MappingProjects",
+            new_name="MappingProject",
         ),
         migrations.RenameModel(
-            old_name='MappingRules',
-            new_name='MappingRule',
+            old_name="MappingRules",
+            new_name="MappingRule",
         ),
         migrations.RenameModel(
-            old_name='MappingTasks',
-            new_name='MappingTask',
+            old_name="MappingTasks",
+            new_name="MappingTask",
         ),
     ]

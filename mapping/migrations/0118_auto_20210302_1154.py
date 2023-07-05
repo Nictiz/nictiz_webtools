@@ -5,20 +5,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0117_auto_20210302_1133'),
+        ("mapping", "0117_auto_20210302_1133"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='accepted',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.IntegerField(), blank=True, null=True, size=None),
+            model_name="mappingreleasecandidaterules",
+            name="accepted",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.IntegerField(), blank=True, null=True, size=None
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='rejected',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.IntegerField(), blank=True, null=True, size=None),
+            model_name="mappingreleasecandidaterules",
+            name="rejected",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.IntegerField(), blank=True, null=True, size=None
+            ),
         ),
     ]

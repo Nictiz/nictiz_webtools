@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0083_mappingreleasecandidatecache'),
+        ("mapping", "0083_mappingreleasecandidatecache"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='MappingReleaseCandidateCache',
-            new_name='MappingReleaseCandidateFHIRConceptMap',
+            old_name="MappingReleaseCandidateCache",
+            new_name="MappingReleaseCandidateFHIRConceptMap",
         ),
     ]

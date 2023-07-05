@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0063_mappingreleasecandidate_mappingreleasecandidaterules'),
+        ("mapping", "0063_mappingreleasecandidate_mappingreleasecandidaterules"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='export_date',
+            model_name="mappingreleasecandidaterules",
+            name="export_date",
             field=models.TextField(blank=True, default=None, null=True),
         ),
     ]

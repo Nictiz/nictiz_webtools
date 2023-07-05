@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0105_mappingtask_category'),
+        ("mapping", "0105_mappingtask_category"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='export_all',
+            model_name="mappingreleasecandidate",
+            name="export_all",
             field=models.BooleanField(default=False),
         ),
     ]

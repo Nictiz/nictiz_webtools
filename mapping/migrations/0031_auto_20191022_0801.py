@@ -4,35 +4,34 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0030_auto_20191022_0722'),
+        ("mapping", "0030_auto_20191022_0722"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingproject',
-            name='use_mapadvice',
+            model_name="mappingproject",
+            name="use_mapadvice",
             field=models.BooleanField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingproject',
-            name='use_mapcorrelation',
+            model_name="mappingproject",
+            name="use_mapcorrelation",
             field=models.BooleanField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingproject',
-            name='use_mapgroup',
+            model_name="mappingproject",
+            name="use_mapgroup",
             field=models.BooleanField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingproject',
-            name='use_mappriority',
+            model_name="mappingproject",
+            name="use_mappriority",
             field=models.BooleanField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingproject',
-            name='use_maprule',
+            model_name="mappingproject",
+            name="use_maprule",
             field=models.BooleanField(blank=True, default=None, null=True),
         ),
     ]

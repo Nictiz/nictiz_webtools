@@ -5,15 +5,17 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0026_auto_20191021_1930'),
+        ("mapping", "0026_auto_20191021_1930"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingtask',
-            name='source_component',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mapping.MappingCodesystemComponent'),
+            model_name="mappingtask",
+            name="source_component",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="mapping.MappingCodesystemComponent",
+            ),
         ),
     ]

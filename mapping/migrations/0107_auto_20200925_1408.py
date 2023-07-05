@@ -4,14 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0106_mappingreleasecandidate_export_all'),
+        ("mapping", "0106_mappingreleasecandidate_export_all"),
     ]
 
     operations = [
         migrations.AddIndex(
-            model_name='mappingcodesystemcomponent',
-            index=models.Index(fields=['codesystem_id'], name='mapping_map_codesys_2e9a2e_idx'),
+            model_name="mappingcodesystemcomponent",
+            index=models.Index(
+                fields=["codesystem_id"], name="mapping_map_codesys_2e9a2e_idx"
+            ),
         ),
     ]

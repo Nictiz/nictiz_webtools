@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0059_auto_20200131_1602'),
+        ("mapping", "0059_auto_20200131_1602"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingproject',
-            name='title',
+            model_name="mappingproject",
+            name="title",
             field=models.CharField(max_length=150),
         ),
     ]

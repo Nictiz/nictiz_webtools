@@ -5,15 +5,21 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0076_auto_20200306_1920'),
+        ("mapping", "0076_auto_20200306_1920"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='codesystem',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='source_codesystem', to='mapping.MappingCodesystem'),
+            model_name="mappingreleasecandidate",
+            name="codesystem",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="source_codesystem",
+                to="mapping.MappingCodesystem",
+            ),
         ),
     ]

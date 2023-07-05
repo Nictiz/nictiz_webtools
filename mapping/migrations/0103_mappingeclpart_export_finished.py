@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0102_mappingtaskaudit_sticky'),
+        ("mapping", "0102_mappingtaskaudit_sticky"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingeclpart',
-            name='export_finished',
+            model_name="mappingeclpart",
+            name="export_finished",
             field=models.BooleanField(default=True),
         ),
     ]

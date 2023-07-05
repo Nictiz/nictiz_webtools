@@ -6,15 +6,19 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0099_auto_20200622_1652'),
+        ("mapping", "0099_auto_20200622_1652"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingeclpart',
-            name='result',
-            field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=dict, encoder=django.core.serializers.json.DjangoJSONEncoder, null=True),
+            model_name="mappingeclpart",
+            name="result",
+            field=django.contrib.postgres.fields.jsonb.JSONField(
+                blank=True,
+                default=dict,
+                encoder=django.core.serializers.json.DjangoJSONEncoder,
+                null=True,
+            ),
         ),
     ]

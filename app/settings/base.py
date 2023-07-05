@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.postgres',
     'django.core.management',
     'django_celery_beat',
+    'django_filters',
     'rest_framework',
     'corsheaders',
     "jwtauth",
@@ -85,10 +86,13 @@ MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-REST_FRAMEWORK = {                          
-    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated",],                          
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100,
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated",],
     "DEFAULT_PARSER_CLASSES":["rest_framework.parsers.JSONParser",],
-    "DEFAULT_AUTHENTICATION_CLASSES": 
+    "DEFAULT_AUTHENTICATION_CLASSES":
         [
             "rest_framework.authentication.SessionAuthentication",
             "rest_framework_simplejwt.authentication.JWTAuthentication",
@@ -106,19 +110,20 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-CORS_ORIGIN_WHITELIST = [
+CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST", default=[
     "http://localhost:9123",
     "http://127.0.0.1:9123",
     "http://62.138.184.153:9123",
-    "https://flower.test-nictiz.nl"
-]
-# CORS_ORIGIN_ALLOW_ALL = True
+    "https://flower.test-nictiz.nl",
+])
+CORS_ORIGIN_ALLOW_ALL = env.bool("CORS_ORIGIN_ALLOW_ALL", default=False)
 CORS_SUPPORTS_CREDENTIALS = True
 CORS_ALLOW_CREDENTIALS = True
 SESSION_COOKIE_SAMESITE=None
-CSRF_COOKIE_DOMAIN = '.test-nictiz.nl'
-SESSION_COOKIE_DOMAIN = '.test-nictiz.nl'
-ALLOWED_HOSTS = ['.test-nictiz.nl']
+CSRF_COOKIE_DOMAIN = env.str("CSRF_COOKIE_DOMAIN", default=".test-nictiz.nl")
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=["http://localhost:9123"])
+SESSION_COOKIE_DOMAIN = env.str("SESSION_COOKIE_DOMAIN", default=".test-nictiz.nl")
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=['.test-nictiz.nl'])
 
 ROOT_URLCONF = 'app.urls'
 
@@ -150,12 +155,13 @@ DATABASES = {
        'NAME': env('POSTGRES_DB'),
        'USER': env('POSTGRES_USER'),
        'PASSWORD': env('POSTGRES_PASS'),
-       'HOST': 'postgres',
-       'PORT': '5432',
+       'HOST': env('POSTGRES_HOST', default='postgres'),
+       'PORT': env('POSTGRES_PORT', default='5432'),
    }
 }
 
-CELERY_BROKER_URL = "amqp://guest:guest@rabbitmq:5672"
+CELERY_BROKER = env.str("CELERY_BROKER", default="pyamqp://guest:guest@rabbitmq:5672/")
+CELERY_BACKEND = env.str("CELERY_BACKEND", default="rpc://guest:guest@rabbitmq:5672/")
 
 
 # Internationalization
@@ -199,3 +205,19 @@ LOGGING = {
         },
     },
 }
+
+MAPPING_TOOL_URL = env.str("MAPPING_TOOL_URL", default='https://termservice.test-nictiz.nl/node/')
+SNOWSTORM_URL = env.str("SNOWSTORM_URL", default="https://snowstorm.test-nictiz.nl")
+
+TERMINOLOGIE_URL = env.str("TERMINOLOGIE_URL", "https://terminologieserver.nl")
+TERMINOLOGIE_USERNAME = env.str("TERMINOLOGIE_USERNAME", "")
+TERMINOLOGIE_PASSWORD = env.str("TERMINOLOGIE_PASSWORD", "")
+
+MAPPING_API_SECRET = str(env("mapping_api_secret"))
+
+# TODO: replace with TERMINOLOGIE_*
+NTS_CLIENT_ID = env("nts_client")
+NTS_APIKEY = env("nts_apikey")
+
+
+PROJECTS_SORTED_ALPHABETICALLY = [3, 13]

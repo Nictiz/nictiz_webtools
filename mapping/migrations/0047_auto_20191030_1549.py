@@ -4,17 +4,16 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0046_remove_mappingcorrelation_project_id'),
+        ("mapping", "0046_remove_mappingcorrelation_project_id"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='mappingrule',
-            name='mapcorrelation_type',
+            model_name="mappingrule",
+            name="mapcorrelation_type",
         ),
         migrations.DeleteModel(
-            name='MappingCorrelation',
+            name="MappingCorrelation",
         ),
     ]

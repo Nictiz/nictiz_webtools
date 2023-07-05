@@ -6,15 +6,16 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0015_mappingcomment_comment_user'),
+        ("mapping", "0015_mappingcomment_comment_user"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingcomment',
-            name='comment_user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="mappingcomment",
+            name="comment_user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

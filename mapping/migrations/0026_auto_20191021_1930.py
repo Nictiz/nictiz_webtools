@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0025_auto_20191021_1927'),
+        ("mapping", "0025_auto_20191021_1927"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingtaskstatus',
-            name='status_id',
+            model_name="mappingtaskstatus",
+            name="status_id",
             field=models.IntegerField(),
         ),
     ]

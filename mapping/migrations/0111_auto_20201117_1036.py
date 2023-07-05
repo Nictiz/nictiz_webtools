@@ -4,15 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0110_auto_20201029_1215'),
+        ("mapping", "0110_auto_20201029_1215"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='export_project',
-            field=models.ManyToManyField(blank=True, default=[], related_name='project', to='mapping.MappingProject'),
+            model_name="mappingreleasecandidate",
+            name="export_project",
+            field=models.ManyToManyField(
+                blank=True,
+                default=[],
+                related_name="project",
+                to="mapping.MappingProject",
+            ),
         ),
     ]

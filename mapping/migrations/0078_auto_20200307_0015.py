@@ -4,60 +4,59 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0077_mappingreleasecandidate_codesystem'),
+        ("mapping", "0077_mappingreleasecandidate_codesystem"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_contact',
+            model_name="mappingreleasecandidate",
+            name="metadata_contact",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_copyright',
+            model_name="mappingreleasecandidate",
+            name="metadata_copyright",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_date',
+            model_name="mappingreleasecandidate",
+            name="metadata_date",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_description',
+            model_name="mappingreleasecandidate",
+            name="metadata_description",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_experimental',
+            model_name="mappingreleasecandidate",
+            name="metadata_experimental",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_id',
+            model_name="mappingreleasecandidate",
+            name="metadata_id",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_publisher',
+            model_name="mappingreleasecandidate",
+            name="metadata_publisher",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_sourceCanonical',
+            model_name="mappingreleasecandidate",
+            name="metadata_sourceCanonical",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_url',
+            model_name="mappingreleasecandidate",
+            name="metadata_url",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='metadata_version',
+            model_name="mappingreleasecandidate",
+            name="metadata_version",
             field=models.TextField(blank=True, default=None, null=True),
         ),
     ]

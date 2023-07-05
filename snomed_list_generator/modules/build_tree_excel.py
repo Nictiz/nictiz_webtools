@@ -62,7 +62,7 @@ def children_array(concept, getParents=False):
     for value in _parents:
         _current = snowstorm.getDescriptions(id=value)
         nl_fsn = _current['categorized'].get('31000146106',{}).get('fsn',{}).get('term',"Niet vertaald")
-        en_fsn = _current['categorized'].get('900000000000509007').get('fsn',{}).get('term',"Niet vertaald")
+        en_fsn = _current['categorized'].get('900000000000509007',{}).get('fsn',{}).get('term',"Niet vertaald")
         concepts.update({
             value : {
                 'conceptId'     :   value,
@@ -73,7 +73,7 @@ def children_array(concept, getParents=False):
     # Add SNOMED data of current concept to the concept dict
     _current = snowstorm.getDescriptions(id=concept)
     nl_fsn = _current['categorized'].get('31000146106',{}).get('fsn',{}).get('term',"Niet vertaald")
-    en_fsn = _current['categorized'].get('900000000000509007').get('fsn',{}).get('term',"Niet vertaald")
+    en_fsn = _current['categorized'].get('900000000000509007',{}).get('fsn',{}).get('term',"Niet vertaald")
     concepts.update({
             concept : {
                 'conceptId'     :   concept,

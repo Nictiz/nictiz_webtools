@@ -1,5 +1,4 @@
 # howdy/urls.py
-from django.conf.urls import url
 from django.urls import include, path
 from rest_framework.routers import SimpleRouter
 # from . import views

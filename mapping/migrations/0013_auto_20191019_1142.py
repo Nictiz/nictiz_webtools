@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0012_mappingcomments'),
+        ("mapping", "0012_mappingcomments"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingcomments',
-            name='comment_body',
+            model_name="mappingcomments",
+            name="comment_body",
             field=models.TextField(max_length=500),
         ),
     ]

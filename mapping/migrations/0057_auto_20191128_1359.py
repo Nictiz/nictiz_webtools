@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0056_auto_20191126_0952'),
+        ("mapping", "0056_auto_20191126_0952"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingrule',
-            name='id',
+            model_name="mappingrule",
+            name="id",
             field=models.BigAutoField(primary_key=True, serialize=False),
         ),
     ]

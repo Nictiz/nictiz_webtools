@@ -6,75 +6,111 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0032_auto_20191022_0802'),
+        ("mapping", "0032_auto_20191022_0802"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingcodesystemcomponent',
-            name='codesystem_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingCodesystem'),
+            model_name="mappingcodesystemcomponent",
+            name="codesystem_id",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                to="mapping.MappingCodesystem",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingcomment',
-            name='comment_task',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingTask'),
+            model_name="mappingcomment",
+            name="comment_task",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to="mapping.MappingTask"
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingcomment',
-            name='comment_user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL),
+            model_name="mappingcomment",
+            name="comment_user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingrule',
-            name='project_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingProject'),
+            model_name="mappingrule",
+            name="project_id",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to="mapping.MappingProject"
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingrule',
-            name='source_component',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='source_component_rule', to='mapping.MappingCodesystemComponent'),
+            model_name="mappingrule",
+            name="source_component",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="source_component_rule",
+                to="mapping.MappingCodesystemComponent",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingrule',
-            name='target_component',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='target_component_rule', to='mapping.MappingCodesystemComponent'),
+            model_name="mappingrule",
+            name="target_component",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="target_component_rule",
+                to="mapping.MappingCodesystemComponent",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtask',
-            name='project_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingProject'),
+            model_name="mappingtask",
+            name="project_id",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to="mapping.MappingProject"
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtask',
-            name='source_codesystem',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='source_codesystem_task', to='mapping.MappingCodesystem'),
+            model_name="mappingtask",
+            name="source_codesystem",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="source_codesystem_task",
+                to="mapping.MappingCodesystem",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtask',
-            name='source_component',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingCodesystemComponent'),
+            model_name="mappingtask",
+            name="source_component",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                to="mapping.MappingCodesystemComponent",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtask',
-            name='status',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingTaskStatus'),
+            model_name="mappingtask",
+            name="status",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                to="mapping.MappingTaskStatus",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtask',
-            name='target_codesystem',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='target_codesystem_task', to='mapping.MappingCodesystem'),
+            model_name="mappingtask",
+            name="target_codesystem",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="target_codesystem_task",
+                to="mapping.MappingCodesystem",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtask',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL),
+            model_name="mappingtask",
+            name="user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtaskstatus',
-            name='project_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingProject'),
+            model_name="mappingtaskstatus",
+            name="project_id",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to="mapping.MappingProject"
+            ),
         ),
     ]

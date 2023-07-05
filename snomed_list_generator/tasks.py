@@ -5,9 +5,7 @@ from .modules.build_tree_excel import *
 from .modules.build_tree_html import *
 from .models import *
 import time
-from celery.task.schedules import crontab
-from celery.result import AsyncResult
-from celery.decorators import periodic_task
+
 
 @shared_task
 def snomed_list_generator_excel_v01(sctid=None, username=None):

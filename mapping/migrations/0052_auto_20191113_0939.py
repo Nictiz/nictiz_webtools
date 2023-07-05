@@ -5,26 +5,78 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0051_auto_20191108_0932'),
+        ("mapping", "0051_auto_20191108_0932"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingproject',
-            name='project_type',
-            field=models.CharField(blank=True, choices=[('1', 'One to Many'), ('2', 'Many to One'), ('3', 'Many to Many'), ('4', 'Snomed ECL to one')], default=None, max_length=50, null=True),
+            model_name="mappingproject",
+            name="project_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("1", "One to Many"),
+                    ("2", "Many to One"),
+                    ("3", "Many to Many"),
+                    ("4", "Snomed ECL to one"),
+                ],
+                default=None,
+                max_length=50,
+                null=True,
+            ),
         ),
         migrations.CreateModel(
-            name='MappingEclQuery',
+            name="MappingEclQuery",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('query', models.TextField(blank=True, default=None, null=True)),
-                ('query_type', models.CharField(blank=True, choices=[('1', 'Children'), ('2', 'Descendants'), ('3', 'Custom')], default=None, max_length=50, null=True)),
-                ('query_function', models.CharField(blank=True, choices=[('1', 'MINUS'), ('2', 'ADD'), ('3', 'Custom')], default=None, max_length=50, null=True)),
-                ('project_id', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingProject')),
-                ('target_component', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingCodesystemComponent')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("query", models.TextField(blank=True, default=None, null=True)),
+                (
+                    "query_type",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("1", "Children"),
+                            ("2", "Descendants"),
+                            ("3", "Custom"),
+                        ],
+                        default=None,
+                        max_length=50,
+                        null=True,
+                    ),
+                ),
+                (
+                    "query_function",
+                    models.CharField(
+                        blank=True,
+                        choices=[("1", "MINUS"), ("2", "ADD"), ("3", "Custom")],
+                        default=None,
+                        max_length=50,
+                        null=True,
+                    ),
+                ),
+                (
+                    "project_id",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="mapping.MappingProject",
+                    ),
+                ),
+                (
+                    "target_component",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="mapping.MappingCodesystemComponent",
+                    ),
+                ),
             ],
         ),
     ]

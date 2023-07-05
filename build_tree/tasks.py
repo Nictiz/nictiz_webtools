@@ -4,9 +4,6 @@ from celery import shared_task, current_task
 from .build_tree import *
 from .models import *
 import time
-from celery.task.schedules import crontab
-from celery.result import AsyncResult
-from celery.decorators import periodic_task
 
 @shared_task
 def build_tree_async(sctid=None, username=None):
@@ -44,7 +41,7 @@ def build_tree_async(sctid=None, username=None):
 
 
 # Cleanup van bestanden na x tijd
-@periodic_task(run_every=(crontab(minute='*/1')), name="some_task", ignore_result=False)
+@shared_task
 def some_task():
     # TODO - Toevoegen opruimtaak. Dan ook boolean output_available op False zetten.
     print("\n\n*************** test **************\n\n")

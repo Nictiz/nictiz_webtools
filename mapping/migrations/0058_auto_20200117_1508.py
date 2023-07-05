@@ -4,46 +4,45 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0057_auto_20191128_1359'),
+        ("mapping", "0057_auto_20191128_1359"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_1',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_1",
         ),
         migrations.RemoveField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_2',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_2",
         ),
         migrations.RemoveField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_3',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_3",
         ),
         migrations.RemoveField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_4',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_4",
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='ancestors',
+            model_name="mappingcodesystemcomponent",
+            name="ancestors",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='children',
+            model_name="mappingcodesystemcomponent",
+            name="children",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='descendants',
+            model_name="mappingcodesystemcomponent",
+            name="descendants",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='parents',
+            model_name="mappingcodesystemcomponent",
+            name="parents",
             field=models.TextField(blank=True, default=None, null=True),
         ),
     ]

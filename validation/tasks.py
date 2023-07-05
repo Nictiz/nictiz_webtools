@@ -7,7 +7,6 @@ import time, json
 from urllib.request import urlopen, Request
 import urllib.parse
 import environ
-from snowstorm_client import Snowstorm
 
 # Import environment variables
 env = environ.Env(DEBUG=(bool, False))

@@ -4,15 +4,14 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0114_auto_20201216_1446'),
+        ("mapping", "0114_auto_20201216_1446"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='mappingreleasecandidate',
-            old_name='metadata_sourceCanonical',
-            new_name='metadata_sourceUri',
+            model_name="mappingreleasecandidate",
+            old_name="metadata_sourceCanonical",
+            new_name="metadata_sourceUri",
         ),
     ]

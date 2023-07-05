@@ -4,25 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0097_mappingeclpart'),
+        ("mapping", "0097_mappingeclpart"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingeclpart',
-            name='error',
+            model_name="mappingeclpart",
+            name="error",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingeclpart',
-            name='failed',
+            model_name="mappingeclpart",
+            name="failed",
             field=models.TextField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='mappingeclpart',
-            name='finished',
+            model_name="mappingeclpart",
+            name="finished",
             field=models.TextField(blank=True, default=None, null=True),
         ),
     ]

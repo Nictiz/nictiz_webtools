@@ -5,15 +5,16 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0086_mappingreleasecandidatefhirconceptmap_rc'),
+        ("mapping", "0086_mappingreleasecandidatefhirconceptmap_rc"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_dict',
-            field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=None, null=True),
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_dict",
+            field=django.contrib.postgres.fields.jsonb.JSONField(
+                blank=True, default=None, null=True
+            ),
         ),
     ]

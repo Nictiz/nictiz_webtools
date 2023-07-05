@@ -4,16 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0104_mappingeclpartexclusion'),
+        ("mapping", "0104_mappingeclpartexclusion"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingtask',
-            name='category',
-            field=models.CharField(default='Prioriteit 1', max_length=500),
+            model_name="mappingtask",
+            name="category",
+            field=models.CharField(default="Prioriteit 1", max_length=500),
             preserve_default=False,
         ),
     ]

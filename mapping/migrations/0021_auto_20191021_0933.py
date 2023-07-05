@@ -4,80 +4,79 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0020_auto_20191021_0634'),
+        ("mapping", "0020_auto_20191021_0634"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_1',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_1",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_2',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_2",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_3',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_3",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_4',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_4",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_5',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_5",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_6',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_6",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_7',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_7",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_1',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_1",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_2',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_2",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_3',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_3",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_4',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_4",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_5',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_5",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_6',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_6",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_extra_7',
+            model_name="mappingcodesystemcomponent",
+            name="component_extra_7",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
     ]

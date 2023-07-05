@@ -122,3 +122,5 @@ node/node_modules
 # Server specific
 reverse-proxy/
 database_pull.sh
+
+.envrc

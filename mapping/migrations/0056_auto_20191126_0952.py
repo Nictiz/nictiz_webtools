@@ -4,15 +4,14 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0055_auto_20191126_0951'),
+        ("mapping", "0055_auto_20191126_0951"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='mappingcodesystemcomponent',
-            old_name='codesystem_extra_dict',
-            new_name='component_extra_dict',
+            model_name="mappingcodesystemcomponent",
+            old_name="codesystem_extra_dict",
+            new_name="component_extra_dict",
         ),
     ]

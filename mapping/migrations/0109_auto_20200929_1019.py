@@ -4,14 +4,13 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0108_auto_20200929_1014'),
+        ("mapping", "0108_auto_20200929_1014"),
     ]
 
     operations = [
         migrations.AddConstraint(
-            model_name='mappingcodesystem',
-            constraint=models.UniqueConstraint(fields=('id',), name='Unique ID'),
+            model_name="mappingcodesystem",
+            constraint=models.UniqueConstraint(fields=("id",), name="Unique ID"),
         ),
     ]

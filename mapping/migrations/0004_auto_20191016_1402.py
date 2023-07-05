@@ -5,28 +5,38 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0003_auto_20191016_1400'),
+        ("mapping", "0003_auto_20191016_1400"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MappingCodesystemComponent',
+            name="MappingCodesystemComponent",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('codesystem_id', models.CharField(max_length=50)),
-                ('component_id', models.CharField(max_length=50)),
-                ('component_title', models.CharField(max_length=500)),
-                ('component_created', models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("codesystem_id", models.CharField(max_length=50)),
+                ("component_id", models.CharField(max_length=50)),
+                ("component_title", models.CharField(max_length=500)),
+                (
+                    "component_created",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
             ],
         ),
         migrations.RemoveField(
-            model_name='mappingcodesystem',
-            name='component_id',
+            model_name="mappingcodesystem",
+            name="component_id",
         ),
         migrations.RemoveField(
-            model_name='mappingcodesystem',
-            name='component_title',
+            model_name="mappingcodesystem",
+            name="component_title",
         ),
     ]

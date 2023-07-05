@@ -1,31 +1,24 @@
 import time
 from celery import shared_task
-from celery.execute import send_task
 
 
 ## Dispatch functie
 @shared_task
 def run_testsuite():
+    from qa_service.tasks.snomedbrowser import checkFSN, checkPTFriendly
     tests = []
 
     ### Test celery taken toevoegen aan list 'tests' ###
     # [TEST] Getoonde FSN controleren in snomedbrowser.nl
-    tests.append(send_task('qa_service.tasks.snomedbrowser.checkFSN', kwargs = {
-            'concept_list': [
-                        {'id':'18213006', 'fsn': 'elektriciteit (fysische kracht)'},
-                        {'id':'18213006', 'fsn': 'elektricity (fout)'},
-                        {'id':'74400008', 'fsn': 'appendicitis (aandoening)'},
-                    ]
-        }))
+    tests.append(checkFSN.delay(concept_list=[
+        {'id':'18213006', 'fsn': 'elektriciteit (fysische kracht)'},
+        {'id':'18213006', 'fsn': 'elektricity (fout)'},
+        {'id':'74400008', 'fsn': 'appendicitis (aandoening)'},
+    ]))
     # [TEST] Getoonde Patientvriendelijke term controleren in snomedbrowser.nl
-    tests.append(send_task('qa_service.tasks.snomedbrowser.checkPTFriendly', kwargs = {
-            'concept_list': [
-                        {'id':'74400008', 'pt': 'blindedarmontsteking'},
-                    ]
-        }))
-
-
-
+    tests.append(checkPTFriendly.delay(concept_list=[
+        {'id':'74400008', 'pt': 'blindedarmontsteking'},
+    ]))
 
     ### Taken uitvoeren ###
     go_wait = False

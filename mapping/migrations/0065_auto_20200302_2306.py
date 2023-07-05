@@ -5,15 +5,14 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0064_auto_20200302_2305'),
+        ("mapping", "0064_auto_20200302_2305"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='export_date',
+            model_name="mappingreleasecandidaterules",
+            name="export_date",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

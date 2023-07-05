@@ -5,16 +5,20 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('mapping', '0095_mappingproject_access'),
+        ("mapping", "0095_mappingproject_access"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='access',
-            field=models.ManyToManyField(blank=True, default=None, related_name='access_rc_users', to=settings.AUTH_USER_MODEL),
+            model_name="mappingreleasecandidate",
+            name="access",
+            field=models.ManyToManyField(
+                blank=True,
+                default=None,
+                related_name="access_rc_users",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0036_remove_mappingproject_source_codesystem'),
+        ("mapping", "0036_remove_mappingproject_source_codesystem"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingproject',
-            name='active',
+            model_name="mappingproject",
+            name="active",
             field=models.BooleanField(default=True),
         ),
     ]

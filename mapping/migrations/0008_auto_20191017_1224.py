@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0007_mappingtask_source_codesystem'),
+        ("mapping", "0007_mappingtask_source_codesystem"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingrule',
-            name='source_component',
+            model_name="mappingrule",
+            name="source_component",
             field=models.CharField(blank=True, max_length=50, null=True),
         ),
         migrations.AlterField(
-            model_name='mappingrule',
-            name='target_component',
+            model_name="mappingrule",
+            name="target_component",
             field=models.CharField(blank=True, max_length=50, null=True),
         ),
     ]

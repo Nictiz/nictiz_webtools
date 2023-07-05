@@ -7,24 +7,49 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('mapping', '0047_auto_20191030_1549'),
+        ("mapping", "0047_auto_20191030_1549"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MappingTaskAudit',
+            name="MappingTaskAudit",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('audit_type', models.TextField()),
-                ('hit_reason', models.TextField(blank=True, default=None, null=True)),
-                ('comment', models.TextField(blank=True, default=None, null=True)),
-                ('ignore', models.BooleanField(blank=True, default=None, null=True)),
-                ('first_hit_time', models.DateTimeField(default=django.utils.timezone.now)),
-                ('ignore_user', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingTask')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("audit_type", models.TextField()),
+                ("hit_reason", models.TextField(blank=True, default=None, null=True)),
+                ("comment", models.TextField(blank=True, default=None, null=True)),
+                ("ignore", models.BooleanField(blank=True, default=None, null=True)),
+                (
+                    "first_hit_time",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
+                (
+                    "ignore_user",
+                    models.ForeignKey(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "task",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="mapping.MappingTask",
+                    ),
+                ),
             ],
         ),
     ]

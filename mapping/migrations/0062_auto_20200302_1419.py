@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0061_mappingcodesystem_codesystem_fhir_uri'),
+        ("mapping", "0061_mappingcodesystem_codesystem_fhir_uri"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingproject',
-            name='use_rulebinding',
+            model_name="mappingproject",
+            name="use_rulebinding",
             field=models.BooleanField(blank=True, default=False, null=True),
         ),
         migrations.AddField(
-            model_name='mappingrule',
-            name='mapspecifies',
-            field=models.ManyToManyField(to='mapping.MappingRule'),
+            model_name="mappingrule",
+            name="mapspecifies",
+            field=models.ManyToManyField(to="mapping.MappingRule"),
         ),
     ]

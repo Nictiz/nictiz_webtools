@@ -4,15 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0049_auto_20191106_1533'),
+        ("mapping", "0049_auto_20191106_1533"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingproject',
-            name='project_types',
-            field=models.CharField(blank=True, choices=[('1', 'One to Many'), ('2', 'Many to One'), ('3', 'Many to Many')], default=None, max_length=50, null=True),
+            model_name="mappingproject",
+            name="project_types",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("1", "One to Many"),
+                    ("2", "Many to One"),
+                    ("3", "Many to Many"),
+                ],
+                default=None,
+                max_length=50,
+                null=True,
+            ),
         ),
     ]

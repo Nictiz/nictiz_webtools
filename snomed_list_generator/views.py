@@ -1,16 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect, HttpResponse
-from django.template.defaultfilters import linebreaksbr
-from django.utils.http import urlquote
 from django.db.models import Sum
 from .forms import *
-from django.contrib.auth import *
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
-from django.contrib.auth.decorators import login_required, user_passes_test
-from celery.result import AsyncResult
+from django.contrib.auth.mixins import UserPassesTestMixin
 from .models import *
-import time
 from .tasks import *
 import os
 from django.shortcuts import redirect

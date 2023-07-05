@@ -5,28 +5,39 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0116_auto_20210227_1827'),
+        ("mapping", "0116_auto_20210227_1827"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='mappingreleasecandidaterules',
-            name='accepted',
+            model_name="mappingreleasecandidaterules",
+            name="accepted",
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidaterules',
-            name='accepted',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.IntegerField(), blank=True, default=None, null=True, size=None),
+            model_name="mappingreleasecandidaterules",
+            name="accepted",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.IntegerField(),
+                blank=True,
+                default=None,
+                null=True,
+                size=None,
+            ),
         ),
         migrations.RemoveField(
-            model_name='mappingreleasecandidaterules',
-            name='rejected',
+            model_name="mappingreleasecandidaterules",
+            name="rejected",
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidaterules',
-            name='rejected',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.IntegerField(), blank=True, default=None, null=True, size=None),
+            model_name="mappingreleasecandidaterules",
+            name="rejected",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.IntegerField(),
+                blank=True,
+                default=None,
+                null=True,
+                size=None,
+            ),
         ),
     ]

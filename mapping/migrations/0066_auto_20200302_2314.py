@@ -5,21 +5,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('mapping', '0065_auto_20200302_2306'),
+        ("mapping", "0065_auto_20200302_2306"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingreleasecandidaterules',
-            name='accepted',
-            field=models.ManyToManyField(related_name='accepted_users', to=settings.AUTH_USER_MODEL),
+            model_name="mappingreleasecandidaterules",
+            name="accepted",
+            field=models.ManyToManyField(
+                related_name="accepted_users", to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AddField(
-            model_name='mappingreleasecandidaterules',
-            name='rejected',
-            field=models.ManyToManyField(related_name='rejected_users', to=settings.AUTH_USER_MODEL),
+            model_name="mappingreleasecandidaterules",
+            name="rejected",
+            field=models.ManyToManyField(
+                related_name="rejected_users", to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

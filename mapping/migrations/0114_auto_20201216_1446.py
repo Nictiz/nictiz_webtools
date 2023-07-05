@@ -5,15 +5,16 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0113_mappingproject_categories'),
+        ("mapping", "0113_mappingproject_categories"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingproject',
-            name='categories',
-            field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=list, null=True),
+            model_name="mappingproject",
+            name="categories",
+            field=django.contrib.postgres.fields.jsonb.JSONField(
+                blank=True, default=list, null=True
+            ),
         ),
     ]

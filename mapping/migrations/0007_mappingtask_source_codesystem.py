@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0006_mappingtask_task_created'),
+        ("mapping", "0006_mappingtask_task_created"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingtask',
-            name='source_codesystem',
+            model_name="mappingtask",
+            name="source_codesystem",
             field=models.CharField(default=1, max_length=50),
             preserve_default=False,
         ),

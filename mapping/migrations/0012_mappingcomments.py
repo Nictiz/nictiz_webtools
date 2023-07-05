@@ -5,20 +5,30 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0011_auto_20191018_1428'),
+        ("mapping", "0011_auto_20191018_1428"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MappingComments',
+            name="MappingComments",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('comment_title', models.CharField(max_length=50)),
-                ('comment_task', models.CharField(max_length=50)),
-                ('comment_body', models.CharField(max_length=400)),
-                ('comment_created', models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("comment_title", models.CharField(max_length=50)),
+                ("comment_task", models.CharField(max_length=50)),
+                ("comment_body", models.CharField(max_length=400)),
+                (
+                    "comment_created",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
             ],
         ),
     ]

@@ -4,19 +4,18 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0054_mappingcodesystem_codesystem_extra_dict'),
+        ("mapping", "0054_mappingcodesystem_codesystem_extra_dict"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='mappingcodesystem',
-            name='codesystem_extra_dict',
+            model_name="mappingcodesystem",
+            name="codesystem_extra_dict",
         ),
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='codesystem_extra_dict',
+            model_name="mappingcodesystemcomponent",
+            name="codesystem_extra_dict",
             field=models.TextField(blank=True, default=None, null=True),
         ),
     ]

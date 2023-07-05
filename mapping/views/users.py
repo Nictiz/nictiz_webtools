@@ -1,128 +1,112 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
-from django.template.defaultfilters import linebreaksbr
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
-from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.auth.models import User
-from django.forms import formset_factory
-from django.urls import reverse
-from django.db.models import Q
-from datetime import datetime
-from celery.task.control import inspect, revoke
-from pandas import read_excel, read_csv
-import xmltodict
-import sys, os
-import environ
-import time
-import random
 import json
-import urllib.request
-import re
-import natsort
+import logging
 
-from rest_framework import viewsets
-from ..serializers import *
-from rest_framework import views
+from django.contrib.auth.models import User
+from django.db.models import Q
+from rest_framework import status, viewsets
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.response import Response
-from rest_framework import permissions
 
-from ..tasks import *
-from ..forms import *
-from ..models import *
+from app.serializers import UserSerializer
+from mapping.enums import MappingGroups
+from mapping.forms import TaskUserForm
+from mapping.models import (
+    MappingCodesystemComponent,
+    MappingEventLog,
+    MappingProject,
+    MappingRule,
+)
+from mapping.permissions import MappingProjectAccessPermission
 
-class Permission_MappingProject_Access(permissions.BasePermission):
-    """
-    Global permission check rights to use the RC Audit functionality.
-    """
-    def has_permission(self, request, view):
-        if 'mapping | access' in request.user.groups.values_list('name', flat=True):
-            return True
+logger = logging.getLogger(__name__)
 
-class MappingUsers(viewsets.ViewSet):
-    permission_classes = [Permission_MappingProject_Access]
 
-    def retrieve(self, request, pk=None):
-        print(f"[users/MappingUsers retrieve] requested by {request.user} - {pk}")
+class MappingProjectUsers(ListCreateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [MappingProjectAccessPermission]
 
-        current_user = User.objects.get(id=request.user.id)
-        project = MappingProject.objects.get(id=pk, access__username=current_user)
-        users = User.objects.all().order_by('username').prefetch_related(
-            'groups'
+    def get_queryset(self):
+        logger.info(
+            f"[users/MappingUsers retrieve] requested by {self.request.user} - {self.kwargs['project_pk']}"
         )
-        tasks = MappingTask.objects.all()
-        output = []
-        # For each user
-        for user in users:
-            # Check if they have access, or have any tasks to their name. If so, add to list.
-            if tasks.filter(user=user).exists() or user.groups.filter(name='mapping | access').exists():
-                output.append({
-                    'value' : user.id,
-                    'text' : user.username,
-                })     
 
-        return Response(output)
-    def create(self, request):
-        print(f"[users/MappingUsers create] requested by {request.user} - data: {str(request.data)[:500]}")
+        return (
+            User.objects.filter(groups__name=MappingGroups.project_access)
+            .filter(
+                Q(tasks__project_id=self.kwargs["project_pk"])
+                | Q(access_users__pk=self.kwargs["project_pk"])
+            )
+            .distinct()
+        )
 
-        task = MappingTask.objects.get(id=request.data.get('task'))
-        current_user = User.objects.get(id=request.user.id)
-        if MappingProject.objects.filter(id=task.project_id.id, access__username=current_user).exists():
+    def create(self, request, project_pk):
+        logger.info(
+            f"[users/MappingUsers create] requested by {request.user} - data: {str(request.data)[:500]}"
+        )
 
-            newuser = User.objects.get(id=request.data.get('user'))
-            if task.user == None:    
-                source_user = User.objects.get(id=1)
-            else:
-                source_user = User.objects.get(id=task.user.id)
-            target_user = User.objects.get(id=request.data.get('user'))
-            current_user = User.objects.get(id=request.user.id)
-            task.user = newuser
-            task.save()
+        project = MappingProject.objects.get(pk=project_pk)
+        form = TaskUserForm(request.data, project=project)
+        if not form.is_valid():
+            return Response(
+                data={"errors": form.errors}, status=status.HTTP_400_BAD_REQUEST
+            )
 
-            # Save snapshot to database
-            source_component = MappingCodesystemComponent.objects.get(id=task.source_component.id)
-            mappingquery = MappingRule.objects.filter(source_component_id=source_component.id)
-            mappingrules = []
-            for rule in mappingquery:
-                bindings = []
-                for binding in rule.mapspecifies.all():
-                    bindings.append(binding.id)
-                mappingrules.append({
-                    'Rule ID' : rule.id,
-                    'Project ID' : rule.project_id.id,
-                    'Project' : rule.project_id.title,
-                    'Target codesystem' : rule.target_component.codesystem_id.codesystem_title,
-                    'Target component ID' : rule.target_component.component_id,
-                    'Target component Term' : rule.target_component.component_title,
-                    'Mapgroup' : rule.mapgroup,
-                    'Mappriority' : rule.mappriority,
-                    'Mapcorrelation' : rule.mapcorrelation,
-                    'Mapadvice' : rule.mapadvice,
-                    'Maprule' : rule.maprule,
-                    'Active' : rule.active,
-                    'Bindings' : bindings,
-                })            
-            # print(str(mappingrules))
-            event = MappingEventLog.objects.create(
-                    task=task,
-                    action='user_change',
-                    action_user=current_user,
-                    action_description='Gebruiker:',
-                    old_data='',
-                    new_data=json.dumps(mappingrules),
-                    old=str(source_user),
-                    new=str(target_user),
-                    user_source=source_user,
-                    user_target=target_user,
-                )
-            event.save()
-            print(str(task))
+        task = form.cleaned_data["task"]
+        new_user = form.cleaned_data["user"]
 
-            # Disabled due to resource management -> usual workflow changes user+status, triggering 2 simultaneous audits.
-            # audit_async.delay('multiple_mapping', task.project_id.id, task.id)
-
-            return Response([])
+        if task.user == None:
+            source_user = User.objects.get(id=1)
         else:
-            return Response('Geen toegang',status=status.HTTP_401_UNAUTHORIZED)
+            source_user = task.user
+
+        task.user = new_user
+        task.save()
+
+        # Save snapshot to database
+        source_component = MappingCodesystemComponent.objects.get(
+            id=task.source_component.id
+        )
+        mappingquery = MappingRule.objects.filter(
+            source_component_id=source_component.id
+        )
+        mappingrules = []
+        for rule in mappingquery:
+            bindings = []
+            for binding in rule.mapspecifies.all():
+                bindings.append(binding.id)
+            mappingrules.append(
+                {
+                    "Rule ID": rule.id,
+                    "Project ID": rule.project_id.id,
+                    "Project": rule.project_id.title,
+                    "Target codesystem": rule.target_component.codesystem_id.codesystem_title,
+                    "Target component ID": rule.target_component.component_id,
+                    "Target component Term": rule.target_component.component_title,
+                    "Mapgroup": rule.mapgroup,
+                    "Mappriority": rule.mappriority,
+                    "Mapcorrelation": rule.mapcorrelation,
+                    "Mapadvice": rule.mapadvice,
+                    "Maprule": rule.maprule,
+                    "Active": rule.active,
+                    "Bindings": bindings,
+                }
+            )
+        # print(str(mappingrules))
+        event = MappingEventLog.objects.create(
+            task=task,
+            action="user_change",
+            action_user=request.user,
+            action_description="Gebruiker:",
+            old_data="",
+            new_data=json.dumps(mappingrules),
+            old=str(source_user),
+            new=str(new_user),
+            user_source=source_user,
+            user_target=new_user,
+        )
+        event.save()
+
+        # Disabled due to resource management -> usual workflow changes user+status, triggering 2 simultaneous audits.
+        # audit_async.delay('multiple_mapping', task.project_id.id, task.id)
+
+        return Response([])

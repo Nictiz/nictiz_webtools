@@ -7,25 +7,64 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('mapping', '0037_mappingproject_active'),
+        ("mapping", "0037_mappingproject_active"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MappingEventLog',
+            name="MappingEventLog",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('action', models.CharField(choices=[('status_change', 'Status wijzigen'), ('user_change', 'Toegewezen aan gebruiker')], max_length=500)),
-                ('action_description', models.CharField(max_length=500)),
-                ('old', models.TextField()),
-                ('new', models.TextField()),
-                ('event_time', models.DateTimeField(default=django.utils.timezone.now)),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingTask')),
-                ('user_source', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='user_event_source', to=settings.AUTH_USER_MODEL)),
-                ('user_target', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='user_event_target', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "action",
+                    models.CharField(
+                        choices=[
+                            ("status_change", "Status wijzigen"),
+                            ("user_change", "Toegewezen aan gebruiker"),
+                        ],
+                        max_length=500,
+                    ),
+                ),
+                ("action_description", models.CharField(max_length=500)),
+                ("old", models.TextField()),
+                ("new", models.TextField()),
+                ("event_time", models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "task",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="mapping.MappingTask",
+                    ),
+                ),
+                (
+                    "user_source",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="user_event_source",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "user_target",
+                    models.ForeignKey(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="user_event_target",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

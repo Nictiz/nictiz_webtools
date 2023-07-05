@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0009_auto_20191017_1257'),
+        ("mapping", "0009_auto_20191017_1257"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingrule',
-            name='active',
+            model_name="mappingrule",
+            name="active",
             field=models.BooleanField(max_length=50),
         ),
     ]

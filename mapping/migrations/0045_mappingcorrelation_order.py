@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0044_auto_20191030_1539'),
+        ("mapping", "0044_auto_20191030_1539"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingcorrelation',
-            name='order',
+            model_name="mappingcorrelation",
+            name="order",
             field=models.IntegerField(blank=True, default=None, null=True),
         ),
     ]

@@ -4,22 +4,21 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0038_mappingeventlog'),
+        ("mapping", "0038_mappingeventlog"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingeventlog',
-            name='new_data',
-            field=models.TextField(default=''),
+            model_name="mappingeventlog",
+            name="new_data",
+            field=models.TextField(default=""),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='mappingeventlog',
-            name='old_data',
-            field=models.TextField(default=''),
+            model_name="mappingeventlog",
+            name="old_data",
+            field=models.TextField(default=""),
             preserve_default=False,
         ),
     ]

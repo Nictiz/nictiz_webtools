@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0101_auto_20200622_1702'),
+        ("mapping", "0101_auto_20200622_1702"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingtaskaudit',
-            name='sticky',
+            model_name="mappingtaskaudit",
+            name="sticky",
             field=models.BooleanField(default=False),
         ),
     ]

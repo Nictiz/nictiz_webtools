@@ -5,15 +5,16 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0023_auto_20191021_1924'),
+        ("mapping", "0023_auto_20191021_1924"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingcomment',
-            name='comment_task',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mapping.MappingTask'),
+            model_name="mappingcomment",
+            name="comment_task",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="mapping.MappingTask"
+            ),
         ),
     ]

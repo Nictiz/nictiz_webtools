@@ -1,14 +1,8 @@
-import time
-
-from ..serializers import *
-
 from urllib.request import urlopen, Request
 
 from celery import shared_task
-from celery.execute import send_task
 
 from bs4 import BeautifulSoup
-import pymsteams
 
 @shared_task
 def checkFSN(concept_list = []):
@@ -58,6 +52,7 @@ def checkFSN(concept_list = []):
         }
 
     return output
+
 
 @shared_task
 def checkPTFriendly(concept_list = []):

@@ -5,15 +5,20 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0039_auto_20191023_0819'),
+        ("mapping", "0039_auto_20191023_0819"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingproject',
-            name='status_complete',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingTaskStatus'),
+            model_name="mappingproject",
+            name="status_complete",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                to="mapping.MappingTaskStatus",
+            ),
         ),
     ]

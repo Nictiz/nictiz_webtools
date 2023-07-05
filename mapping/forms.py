@@ -1,6 +1,7 @@
 from django import forms
-from .models import *
+from mapping.models import *
 # from django_select2.forms import HeavySelect2Widget
+
 
 class MappingForm(forms.Form):
     id = forms.CharField(widget=forms.HiddenInput(), label='id', max_length=100)
@@ -46,6 +47,15 @@ class TaskCreateForm(forms.Form):
     comment = forms.CharField(label='comment', required=False, widget=forms.Textarea(attrs={"rows":3, "cols":42}))
     tasks = forms.CharField(label='tasks', required=False, widget=forms.Textarea(attrs={"rows":3, "cols":42}))
 
+
+class TaskUserForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        project = kwargs.pop("project")
+        super().__init__(*args, **kwargs)
+        self.fields["task"] = forms.ModelChoiceField(queryset=project.tasks.all())
+        self.fields["user"] = forms.ModelChoiceField(queryset=project.access.all())
+
+
 class PostCommentForm(forms.Form):
     project_id          = forms.CharField(widget=forms.HiddenInput(), label='project_id', max_length=100)
     task_id             = forms.CharField(widget=forms.HiddenInput(), label='task_id', max_length=100)
@@ -60,8 +70,14 @@ class TaskManagerForm(forms.Form):
     status             = forms.CharField(label='status', max_length=500, required=False)
     user               = forms.CharField(label='user', max_length=500, required=False)
 
+
 class EclQueryForm(forms.Form):
+    id = forms.CharField()
+    description = forms.CharField()
     query = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    delete = forms.BooleanField()
+    correlation_options = forms.CharField()
+
 
 class EclQueryBuilderForm(forms.Form):
     query_id    = forms.IntegerField(widget=forms.HiddenInput(), label='query_id')

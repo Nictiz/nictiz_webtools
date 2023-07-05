@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0060_auto_20200204_1001'),
+        ("mapping", "0060_auto_20200204_1001"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='codesystem_fhir_uri',
+            model_name="mappingcodesystem",
+            name="codesystem_fhir_uri",
             field=models.CharField(blank=True, default=None, max_length=150, null=True),
         ),
     ]

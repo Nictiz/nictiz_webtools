@@ -5,15 +5,16 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0087_auto_20200320_1723'),
+        ("mapping", "0087_auto_20200320_1723"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingcodesystemcomponent',
-            name='component_terms',
-            field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=None, null=True),
+            model_name="mappingcodesystemcomponent",
+            name="component_terms",
+            field=django.contrib.postgres.fields.jsonb.JSONField(
+                blank=True, default=None, null=True
+            ),
         ),
     ]

@@ -26,8 +26,6 @@ from rest_framework import views
 from rest_framework.response import Response
 from rest_framework.permissions import *
 
-from snowstorm_client import Snowstorm
-
 from django.db.models.functions import Cast
 
 # Import environment variables

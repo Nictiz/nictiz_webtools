@@ -5,20 +5,21 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0093_auto_20200324_1240'),
+        ("mapping", "0093_auto_20200324_1240"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingproject',
-            name='tags',
-            field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default=None, null=True),
+            model_name="mappingproject",
+            name="tags",
+            field=django.contrib.postgres.fields.jsonb.JSONField(
+                blank=True, default=None, null=True
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingtaskstatus',
-            name='status_description',
+            model_name="mappingtaskstatus",
+            name="status_description",
             field=models.TextField(blank=True, default=None, null=True),
         ),
     ]

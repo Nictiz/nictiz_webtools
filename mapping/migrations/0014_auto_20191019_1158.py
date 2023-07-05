@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0013_auto_20191019_1142'),
+        ("mapping", "0013_auto_20191019_1142"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='MappingComments',
-            new_name='MappingComment',
+            old_name="MappingComments",
+            new_name="MappingComment",
         ),
     ]

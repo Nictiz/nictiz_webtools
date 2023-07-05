@@ -5,20 +5,33 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0089_auto_20200320_1754'),
+        ("mapping", "0089_auto_20200320_1754"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='source_component',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='source_component', to='mapping.MappingCodesystemComponent'),
+            model_name="mappingreleasecandidaterules",
+            name="source_component",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="source_component",
+                to="mapping.MappingCodesystemComponent",
+            ),
         ),
         migrations.AlterField(
-            model_name='mappingreleasecandidaterules',
-            name='target_component',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='target_component', to='mapping.MappingCodesystemComponent'),
+            model_name="mappingreleasecandidaterules",
+            name="target_component",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="target_component",
+                to="mapping.MappingCodesystemComponent",
+            ),
         ),
     ]

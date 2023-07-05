@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0120_mappingreleasecandidate_import_all'),
+        ("mapping", "0120_mappingreleasecandidate_import_all"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingproject',
-            name='automap_valueset',
+            model_name="mappingproject",
+            name="automap_valueset",
             field=models.CharField(blank=True, default=None, max_length=50, null=True),
         ),
     ]

@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0119_auto_20210311_1456'),
+        ("mapping", "0119_auto_20210311_1456"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingreleasecandidate',
-            name='import_all',
+            model_name="mappingreleasecandidate",
+            name="import_all",
             field=models.BooleanField(default=False),
         ),
     ]

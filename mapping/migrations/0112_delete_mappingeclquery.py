@@ -4,13 +4,12 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0111_auto_20201117_1036'),
+        ("mapping", "0111_auto_20201117_1036"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='MappingEclQuery',
+            name="MappingEclQuery",
         ),
     ]

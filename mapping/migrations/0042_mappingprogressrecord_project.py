@@ -5,16 +5,19 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0041_mappingprogressrecord'),
+        ("mapping", "0041_mappingprogressrecord"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingprogressrecord',
-            name='project',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingProject'),
+            model_name="mappingprogressrecord",
+            name="project",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.PROTECT,
+                to="mapping.MappingProject",
+            ),
             preserve_default=False,
         ),
     ]

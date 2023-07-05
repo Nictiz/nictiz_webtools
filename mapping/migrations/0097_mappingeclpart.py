@@ -7,21 +7,55 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0096_mappingreleasecandidate_access'),
+        ("mapping", "0096_mappingreleasecandidate_access"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MappingEclPart',
+            name="MappingEclPart",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('query', models.TextField(blank=True, default=None, null=True)),
-                ('description', models.TextField(blank=True, default=None, null=True)),
-                ('result', django.contrib.postgres.fields.jsonb.JSONField(encoder=django.core.serializers.json.DjangoJSONEncoder)),
-                ('mapcorrelation', models.CharField(blank=True, choices=[('447559001', 'Broad to narrow'), ('447557004', 'Exact match'), ('447558009', 'Narrow to broad'), ('447560006', 'Partial overlap'), ('447556008', 'Not mappable'), ('447561005', 'Not specified')], default=None, max_length=50, null=True)),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='mapping.MappingTask')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("query", models.TextField(blank=True, default=None, null=True)),
+                ("description", models.TextField(blank=True, default=None, null=True)),
+                (
+                    "result",
+                    django.contrib.postgres.fields.jsonb.JSONField(
+                        encoder=django.core.serializers.json.DjangoJSONEncoder
+                    ),
+                ),
+                (
+                    "mapcorrelation",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("447559001", "Broad to narrow"),
+                            ("447557004", "Exact match"),
+                            ("447558009", "Narrow to broad"),
+                            ("447560006", "Partial overlap"),
+                            ("447556008", "Not mappable"),
+                            ("447561005", "Not specified"),
+                        ],
+                        default=None,
+                        max_length=50,
+                        null=True,
+                    ),
+                ),
+                (
+                    "task",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="mapping.MappingTask",
+                    ),
+                ),
             ],
         ),
     ]

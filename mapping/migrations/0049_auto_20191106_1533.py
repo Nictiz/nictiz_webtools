@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0048_mappingtaskaudit'),
+        ("mapping", "0048_mappingtaskaudit"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mappingtaskaudit',
-            name='ignore',
+            model_name="mappingtaskaudit",
+            name="ignore",
             field=models.BooleanField(default=False),
         ),
     ]

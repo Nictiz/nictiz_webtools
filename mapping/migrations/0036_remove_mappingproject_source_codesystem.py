@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0035_mappingproject_source_codesystem'),
+        ("mapping", "0035_mappingproject_source_codesystem"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='mappingproject',
-            name='source_codesystem',
+            model_name="mappingproject",
+            name="source_codesystem",
         ),
     ]

@@ -1,10 +1,9 @@
 # howdy/urls.py
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 app_name = 'homepage'
 urlpatterns = [
-    #url(r'medicatie/', views.get_name, name='medicatie'),
-    url(r'', views.HomePageView.as_view(), name='index'),
+    path(r'', views.HomePageView.as_view(), name='index'),
 ]

@@ -2,23 +2,15 @@
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task, current_task
 import time, json
-from celery.task.schedules import crontab
-from celery.result import AsyncResult
-from celery.decorators import periodic_task
 from celery.utils.log import get_task_logger
-import xmltodict
 from .forms import *
 from .models import *
 import urllib.request
-from pandas import read_excel, read_csv
 import environ
 
 from .build_tree import *
 
-import csv, multiprocessing, pandas, sys, os
 from openpyxl import Workbook
-from os import listdir
-import glob
 
 from urllib.request import urlopen, Request
 import urllib.parse

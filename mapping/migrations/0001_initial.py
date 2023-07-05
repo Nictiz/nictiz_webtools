@@ -5,51 +5,84 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='MappingCodesystems',
+            name="MappingCodesystems",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('codesystem', models.CharField(max_length=50)),
-                ('codesystem_version', models.CharField(max_length=50)),
-                ('component_id', models.DateTimeField(max_length=50)),
-                ('component_title', models.DateTimeField(max_length=500)),
-                ('component_created', models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("codesystem", models.CharField(max_length=50)),
+                ("codesystem_version", models.CharField(max_length=50)),
+                ("component_id", models.DateTimeField(max_length=50)),
+                ("component_title", models.DateTimeField(max_length=500)),
+                (
+                    "component_created",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='MappingProjects',
+            name="MappingProjects",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=50)),
-                ('created', models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=50)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
-            name='MappingRules',
+            name="MappingRules",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('project_id', models.CharField(max_length=50)),
-                ('source_component', models.CharField(max_length=50)),
-                ('target_component', models.CharField(max_length=50)),
-                ('active', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("project_id", models.CharField(max_length=50)),
+                ("source_component", models.CharField(max_length=50)),
+                ("target_component", models.CharField(max_length=50)),
+                ("active", models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='MappingTasks',
+            name="MappingTasks",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('project_id', models.CharField(max_length=50)),
-                ('source_component', models.CharField(max_length=50)),
-                ('target_codesystem', models.CharField(max_length=50)),
-                ('user', models.CharField(max_length=50)),
-                ('status', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("project_id", models.CharField(max_length=50)),
+                ("source_component", models.CharField(max_length=50)),
+                ("target_codesystem", models.CharField(max_length=50)),
+                ("user", models.CharField(max_length=50)),
+                ("status", models.CharField(max_length=50)),
             ],
         ),
     ]

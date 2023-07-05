@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0078_auto_20200307_0015'),
+        ("mapping", "0078_auto_20200307_0015"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingcodesystem',
-            name='component_fhir_uri',
+            model_name="mappingcodesystem",
+            name="component_fhir_uri",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
         migrations.AlterField(
-            model_name='mappingcodesystem',
-            name='codesystem_fhir_uri',
+            model_name="mappingcodesystem",
+            name="codesystem_fhir_uri",
             field=models.CharField(blank=True, default=None, max_length=500, null=True),
         ),
     ]

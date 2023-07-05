@@ -5,15 +5,14 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mapping', '0005_auto_20191016_1403'),
+        ("mapping", "0005_auto_20191016_1403"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='mappingtask',
-            name='task_created',
+            model_name="mappingtask",
+            name="task_created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]
